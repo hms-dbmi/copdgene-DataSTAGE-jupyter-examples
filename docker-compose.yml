@@ -9,7 +9,7 @@ services:
     expose:
       - 8888
     ports:
-      - 80:8888
+      - 801:8888
     volumes:
       - ./jupyter-notebooks:/home/jovyan/work
 
