@@ -11,8 +11,13 @@ services:
     ports:
       - 80:8888
     volumes:
-      - ./jupyter-notebooks:/home/jovyan/work
-
+      - ./jupyter-notebooks-working/jupyter-notebooks:/home/jovyan/work
+  copy-working-files:
+    image: alpine:latest
+    entrypoint: cp -r jupyter-notebooks/ jupyter-notebooks-working
+    volumes:
+      - ./jupyter-notebooks:/jupyter-notebooks
+      - ./jupyter-notebooks-working:/jupyter-notebooks-working
 networks:
   public:
 
